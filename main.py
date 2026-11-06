@@ -138,8 +138,7 @@ def main():
     print("Title:", d["title"])
     asyncio.run(tts(" ".join(d["lines"]), "voice.mp3"))
     total = dur("voice.mp3")
-    build_video(get_clips(d["keywords"]), total)
-    render_final(d["lines"], total)
+build_video(__import__("clips").get_clips(d["keywords"]), total)    render_final(d["lines"], total)
     make_cover(d["title"])
     desc = d["description"] + "\n\n" + " ".join(d["hashtags"])
     tags = [h.strip("#") for h in d["hashtags"]]
